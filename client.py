@@ -25,6 +25,7 @@ def main():
     while run:
         clock.tick(60)
         p2 = n.send(p)
+
         
 
         for event in pygame.event.get():
@@ -33,6 +34,6 @@ def main():
                 pygame.quit()
 
         p.move()
-        redrawWindow(win, [p,p2])
+        redrawWindow(win, p2)
 
 main()

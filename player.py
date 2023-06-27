@@ -12,6 +12,7 @@ class Player():
 
     def draw(self, win):
         pygame.draw.rect(win, self.color, self.rect)
+    
 
     def move(self):
         keys = pygame.key.get_pressed()

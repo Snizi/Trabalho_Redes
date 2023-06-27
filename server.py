@@ -31,10 +31,13 @@ def threaded_client(conn, player_id):
                 print("Disconnected")
                 break
             else:
-                if player_id == 1:
-                    reply = players[0]
-                else:
-                    reply = players[1]
+                # if player_id == 0:
+                #     reply = [players[1], players[2]]
+                # if player_id == 1 :
+                #     reply = [players[0], players[2]]
+                # else:
+                #     reply = [players[1], players[0]]
+                reply = [players[0], players[1], players[2]]
 
                 print("Received: ", data)
                 print("Sending : ", reply)
