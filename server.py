@@ -17,14 +17,14 @@ s.listen(4)
 print("Waiting for a connection, Server Started")
 
 
-players = [Player(0,0,50,50, (255,0,0)), Player(100,100,50,50,(0,0,255)), Player(150,150,50,50,(0,255,0))]
+players = [Player(0,0, (255,0,0)), Player(100,100,(0,0,255)), Player(150,150,(0,255,0))]
 
 def threaded_client(conn, player_id):
     conn.send(pickle.dumps(players[player_id]))
     reply = ""
     while True:
         try:
-            data = pickle.loads(conn.recv(2048))
+            data = pickle.loads(conn.recv(4096))
             players[player_id] = data
 
             if not data:
@@ -37,6 +37,7 @@ def threaded_client(conn, player_id):
                 #     reply = [players[0], players[2]]
                 # else:
                 #     reply = [players[1], players[0]]
+                
                 reply = [players[0], players[1], players[2]]
 
                 print("Received: ", data)
